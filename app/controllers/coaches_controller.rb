@@ -24,6 +24,7 @@ class CoachesController < ApplicationController
   # POST /coaches
   # POST /coaches.json
   def create
+    coach_params[:player_id] = Player.find_by(name: coach_params[:player_id]).id
     @coach = Coach.new(coach_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class CoachesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coach_params
-      params.require(:coach).permit(:name)
+      params.require(:coach).permit!
     end
 end

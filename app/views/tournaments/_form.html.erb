@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+  <% players_array = Player.all.map { |player| [player.name] }%>
+  
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -23,7 +24,7 @@
 
   <div class="field">
     <%= form.label :winner %>
-    <%= form.number_field :winner %>
+    <%= form.select :winner, players_array %>
   </div>
 
   <div class="actions">

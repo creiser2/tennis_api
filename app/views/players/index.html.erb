@@ -2,4 +2,40 @@
 
 <h1>Players</h1>
 
-<br>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td>ID: <%= player.id %></td>
+        <td>Name: <%= player.name %></td>
+        <td>Coach:
+          <% if Coach.find_by(player_id: player.id) %>
+            <%= Coach.find_by(player_id: player.id).name %>
+          <% else %>
+            No Coach
+          <% end %>
+        </td>
+        <td>Matches:
+          <% player.matches.each do |match| %>
+            <p>
+              ID: <%= match.id %>
+              Tournament: <%= Tournament.find_by(id: match.tournament_id)["name"] %>
+            </p>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Player', new_player_path %>

@@ -12,9 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :matchtype %>
+    <%= form.select :matchtype, ["Singles", "Doubles"] %>
   </div>
+  <% tournament_array = Tournament.all.map { |t| [t.name] }%>
+
+  <div class="field">
+    <%= form.label :tournament_id %>
+    <%= form.select :tournament_id, tournament_array %>
+  </div>
+
+  <% players_array = Player.all.map { |player| [player.name] }%>
+  <h2>Players </h2>
+  <% if params[:matchtype] == "Singles" %>
+      <div class="field">
+        <%= form.select :firstPlayer, players_array %>
+      </div>
+      <div class="field">
+        <%= form.select :secondPlayer, players_array %>
+      </div>
+  <% else %>
+      <div class="field">
+        <%= form.select :firstPlayer, players_array %>
+      </div>
+      <div class="field">
+        <%= form.select :secondPlayer, players_array %>
+      </div>
+      <div class="field">
+        <%= form.select :thirdPlayer, players_array %>
+      </div>
+      <div class="field">
+        <%= form.select :fourthPlayer, players_array %>
+      </div>
+  <% end %>
+
+  <h2>Create </h2>
+
 
   <div class="actions">
     <%= form.submit %>

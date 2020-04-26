@@ -1,3 +1,3 @@
 class Coach < ApplicationRecord
-  has_one :player
+  belongs_to :player
 end

@@ -2,8 +2,12 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @match.type %>
+  <%= @match.matchtype %>
 </p>
+<!-- <p>
+  <strong>Players:</strong>
+  <%# <%= @match.players do |player| %> %>
+</p> -->
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

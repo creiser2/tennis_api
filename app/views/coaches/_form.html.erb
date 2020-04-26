@@ -16,6 +16,23 @@
     <%= form.text_field :name %>
   </div>
 
+<% players_array = Player.all.map { |player| [player.name] }%>
+
+  <div class="field">
+    <%= form.label :player_id %>
+    <%= form.select :player_id, players_array %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

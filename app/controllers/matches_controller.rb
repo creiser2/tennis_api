@@ -1,10 +1,11 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-
   # GET /matches
   # GET /matches.json
+
   def index
     @matches = Match.all
+    @players = []
   end
 
   # GET /matches/1
@@ -24,10 +25,34 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
-    @match = Match.new(match_params)
+    mParams = params[:match]
+    begin
+      @tournament = Tournament.find_by(id: Integer(Tournament.find_by(name: mParams["tournament_id"]).id))
+    rescue err
+      return
+    end
+
+    @match = Match.new("matchtype": mParams[:matchtype])
+    @match.tournament = @tournament
 
     respond_to do |format|
       if @match.save
+        if mParams[:matchtype] == "Singles"
+          @players = [
+            Player.find_by(name: mParams[:firstPlayer]),
+            Player.find_by(name: mParams[:secondPlayer])
+          ]
+        else
+          @players = [
+            Player.find_by(name: mParams[:firstPlayer]),
+            Player.find_by(name: mParams[:secondPlayer]),
+            Player.find_by(name: mParams[:thirdPlayer]),
+            Player.find_by(name: mParams[:fourthPlayer])
+          ]
+        end
+
+        @match.players << @players
+
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @match }
       else
@@ -61,6 +86,19 @@ class MatchesController < ApplicationController
     end
   end
 
+  def getPlayersString
+    if @match.players
+      str = "["
+      @match.players do |player|
+        str += player.name
+        str += ","
+      end
+      str += "]"
+    else
+      return "No Players"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_match
@@ -69,6 +107,6 @@ class MatchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.require(:match).permit(:type)
+      params.require(:match).permit(:matchtype, :tournament_id, :players)
     end
 end

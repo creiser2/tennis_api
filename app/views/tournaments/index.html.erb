@@ -17,7 +17,7 @@
       <tr>
         <td><%= tournament.name %></td>
         <td><%= tournament.venue %></td>
-        <td><%= tournament.winner %></td>
+        <td><%= Player.find_by(id: tournament.winner).name %></td>
         <td><%= link_to 'Show', tournament %></td>
         <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
         <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
