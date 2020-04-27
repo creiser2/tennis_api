@@ -6883,3 +6883,276 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 242ms (Views: 226.2ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/tournaments" for ::1 at 2020-04-26 20:20:51 -0400
+Processing by TournamentsController#index as HTML
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.5ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:16
+  Rendered tournaments/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/matches/new" for ::1 at 2020-04-26 20:20:59 -0400
+Processing by MatchesController#new as HTML
+  Rendering matches/new.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/matches/_form.html.erb:18
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/matches/_form.html.erb:25
+  Rendered matches/_form.html.erb (8.5ms)
+  Rendered matches/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 49ms (Views: 39.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/players/new" for ::1 at 2020-04-26 20:21:08 -0400
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (5.8ms)
+  Rendered players/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 71ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/players" for ::1 at 2020-04-26 20:21:11 -0400
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3xi4YdYyVmiuVvwh1YjXtsFSqrrFwlYHItATwddTAocQTuWyc+eT+BrNavxwCUUaemIFoXGOBgoPQv1XHqW+1A==", "player"=>{"name"=>"asdfadsf", "country"=>"asdasdf", "ranking"=>"1"}, "commit"=>"Create Player"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "country", "ranking", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "asdfadsf"], ["country", "asdasdf"], ["ranking", 1], ["created_at", "2020-04-27 00:21:11.834691"], ["updated_at", "2020-04-27 00:21:11.834691"]]
+  ↳ app/controllers/players_controller.rb:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+Redirected to http://localhost:3000/players/1
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/players/1" for ::1 at 2020-04-26 20:21:11 -0400
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 42ms (Views: 34.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/players/new" for ::1 at 2020-04-26 20:21:14 -0400
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (3.3ms)
+  Rendered players/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 56ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/players" for ::1 at 2020-04-26 20:21:17 -0400
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/CB4T0OfLFjLr1UcD2WO7Zo+G7SLUJwtEINdWo8WDFczdiWc5krpyH80w8Gq5BxBIQ60rz8czCA9EbPMRuCwBA==", "player"=>{"name"=>"asdfafsd", "country"=>"fassafd", "ranking"=>"2"}, "commit"=>"Create Player"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+  [1m[36mPlayer Create (0.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "country", "ranking", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "asdfafsd"], ["country", "fassafd"], ["ranking", 2], ["created_at", "2020-04-27 00:21:17.842953"], ["updated_at", "2020-04-27 00:21:17.842953"]]
+  ↳ app/controllers/players_controller.rb:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+Redirected to http://localhost:3000/players/2
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/players/2" for ::1 at 2020-04-26 20:21:17 -0400
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 71ms (Views: 65.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/players/new" for ::1 at 2020-04-26 20:21:19 -0400
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (2.2ms)
+  Rendered players/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/players" for ::1 at 2020-04-26 20:21:23 -0400
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u6snbJh3AhL203vjbR4jpf/6dbKtzKxL3FWz7jW60590/Xq/PaLHgkJI7T7In7EJRMraqRmA/Ebxx114/ExvzA==", "player"=>{"name"=>"adfadsf", "country"=>"wfwef", "ranking"=>"3"}, "commit"=>"Create Player"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "country", "ranking", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "adfadsf"], ["country", "wfwef"], ["ranking", 3], ["created_at", "2020-04-27 00:21:23.490589"], ["updated_at", "2020-04-27 00:21:23.490589"]]
+  ↳ app/controllers/players_controller.rb:23
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+Redirected to http://localhost:3000/players/3
+Completed 302 Found in 11ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/players/3" for ::1 at 2020-04-26 20:21:23 -0400
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/players/4" for ::1 at 2020-04-26 20:21:25 -0400
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Player with 'id'=4):
+  
+app/controllers/players_controller.rb:52:in `set_player'
+Started GET "/players/new" for ::1 at 2020-04-26 20:21:28 -0400
+Processing by PlayersController#new as HTML
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (2.7ms)
+  Rendered players/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/players" for ::1 at 2020-04-26 20:21:33 -0400
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U0FGhm3gDyJlR7wCRiM1+5UngX5h9H5WRFR1GBiBtCOcFxtVyDXKstHcKt/joqdXLhcuZdW4LltpxpuO0XcIcA==", "player"=>{"name"=>"sadfwewf", "country"=>"dsadf", "ranking"=>"4"}, "commit"=>"Create Player"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+  [1m[36mPlayer Create (0.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "country", "ranking", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "sadfwewf"], ["country", "dsadf"], ["ranking", 4], ["created_at", "2020-04-27 00:21:33.437074"], ["updated_at", "2020-04-27 00:21:33.437074"]]
+  ↳ app/controllers/players_controller.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:23
+Redirected to http://localhost:3000/players/4
+Completed 302 Found in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/players/4" for ::1 at 2020-04-26 20:21:33 -0400
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/matches" for ::1 at 2020-04-26 20:21:35 -0400
+Processing by MatchesController#index as HTML
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mMatch Load (0.2ms)[0m  [1m[34mSELECT "matches".* FROM "matches"[0m
+  ↳ app/views/matches/index.html.erb:14
+  Rendered matches/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 39ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/matches/new" for ::1 at 2020-04-26 20:21:37 -0400
+Processing by MatchesController#new as HTML
+  Rendering matches/new.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/matches/_form.html.erb:18
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/matches/_form.html.erb:25
+  Rendered matches/_form.html.erb (4.2ms)
+  Rendered matches/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tournaments/new" for ::1 at 2020-04-26 20:21:44 -0400
+Processing by TournamentsController#new as HTML
+  Rendering tournaments/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/tournaments/_form.html.erb:13
+  Rendered tournaments/_form.html.erb (3.3ms)
+  Rendered tournaments/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tournaments" for ::1 at 2020-04-26 20:21:56 -0400
+Processing by TournamentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETV7D2aCjreT83bEwMe3t6yNIOGMsQHkbrFl7fWixGveYybcw1dLJydo4BllRiUbF72P+jj9UelDI4t7PFR4OA==", "tournament"=>{"name"=>"Wimbledon", "venue"=>"Unknown", "winner"=>"adfadsf"}, "commit"=>"Create Tournament"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = ? LIMIT ?[0m  [["name", "adfadsf"], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:28
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tournaments_controller.rb:31
+  [1m[36mTournament Create (0.6ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "venue", "winner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wimbledon"], ["venue", "Unknown"], ["winner", 3], ["created_at", "2020-04-27 00:21:56.881629"], ["updated_at", "2020-04-27 00:21:56.881629"]]
+  ↳ app/controllers/tournaments_controller.rb:31
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tournaments_controller.rb:31
+Redirected to http://localhost:3000/tournaments/1
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/tournaments/1" for ::1 at 2020-04-26 20:21:56 -0400
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT  "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:68
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/matches" for ::1 at 2020-04-26 20:22:01 -0400
+Processing by MatchesController#index as HTML
+  Rendering matches/index.html.erb within layouts/application
+  [1m[36mMatch Load (0.1ms)[0m  [1m[34mSELECT "matches".* FROM "matches"[0m
+  ↳ app/views/matches/index.html.erb:14
+  Rendered matches/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/matches/new" for ::1 at 2020-04-26 20:22:02 -0400
+Processing by MatchesController#new as HTML
+  Rendering matches/new.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/matches/_form.html.erb:18
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/matches/_form.html.erb:25
+  Rendered matches/_form.html.erb (5.8ms)
+  Rendered matches/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 38ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/matches" for ::1 at 2020-04-26 20:22:16 -0400
+Processing by MatchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/B3oHD541MX9BTIE78PYJ7f72NwvcxwaFVVPmXWovN89WFcCevnoejXS7aoNoILfuaDMy3K1MR4aqkWteLIfBQ==", "match"=>{"matchtype"=>"Singles", "tournament_id"=>"Wimbledon", "firstPlayer"=>"asdfafsd", "secondPlayer"=>"sadfwewf", "thirdPlayer"=>"adfadsf", "fourthPlayer"=>"asdfadsf"}, "commit"=>"Create Match"}
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT  "tournaments".* FROM "tournaments" WHERE "tournaments"."name" = ? LIMIT ?[0m  [["name", "Wimbledon"], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:30
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT  "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/matches_controller.rb:39
+  [1m[36mMatch Create (0.4ms)[0m  [1m[32mINSERT INTO "matches" ("matchtype", "created_at", "updated_at", "tournament_id") VALUES (?, ?, ?, ?)[0m  [["matchtype", "Singles"], ["created_at", "2020-04-27 00:22:16.742490"], ["updated_at", "2020-04-27 00:22:16.742490"], ["tournament_id", 1]]
+  ↳ app/controllers/matches_controller.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/matches_controller.rb:39
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = ? LIMIT ?[0m  [["name", "asdfafsd"], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:42
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = ? LIMIT ?[0m  [["name", "sadfwewf"], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/matches_controller.rb:54
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("match_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["match_id", 1], ["player_id", 2], ["created_at", "2020-04-27 00:22:16.774599"], ["updated_at", "2020-04-27 00:22:16.774599"]]
+  ↳ app/controllers/matches_controller.rb:54
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("match_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["match_id", 1], ["player_id", 4], ["created_at", "2020-04-27 00:22:16.776850"], ["updated_at", "2020-04-27 00:22:16.776850"]]
+  ↳ app/controllers/matches_controller.rb:54
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/matches_controller.rb:54
+Redirected to http://localhost:3000/matches/1
+Completed 302 Found in 52ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/matches/1" for ::1 at 2020-04-26 20:22:16 -0400
+Processing by MatchesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMatch Load (0.2ms)[0m  [1m[34mSELECT  "matches".* FROM "matches" WHERE "matches"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/matches_controller.rb:105
+  Rendering matches/show.html.erb within layouts/application
+  Rendered matches/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 0.2ms)
+
+
