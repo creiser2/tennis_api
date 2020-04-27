@@ -11,7 +11,8 @@ https://young-temple-66859.herokuapp.com/tournaments
 
 
 HOW TO RUN LOCALLY:
-Requirments:
+
+Requirements:
   - ruby
   - rails
   - sqlite3
